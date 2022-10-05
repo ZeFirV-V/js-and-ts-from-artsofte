@@ -1,0 +1,1 @@
+type ProtectObjectValueFromChange = (obj: any, fieldName: string) => void;

@@ -1,0 +1,1 @@
+type MultiplyPropertyValue = (obj: any, type: 'number' | 'string', multiplyCoefficent: number) => void;

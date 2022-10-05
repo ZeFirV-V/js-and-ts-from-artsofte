@@ -1,0 +1,1 @@
+type getUniqueFieldsValueFromObject = (obj: any, fieldName: string) => any[];

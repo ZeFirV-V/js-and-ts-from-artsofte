@@ -1,0 +1,18 @@
+{
+  "name": "js-2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "1-task-tests": "xv 1-task/tests/create-empty-object.test.js",
+    "2-task-tests": "xv 2-task/tests/multiply-property-value.test.js",
+    "3-task-tests": "xv 3-task/tests/protect-object-value-from-chang.test.js",
+    "4-task-tests": "xv 4-task/tests/multiply-property-value.test.js",
+    "5-task-tests": "xv 5-task/tests/get-unique-fields-value-from-object.test.js",
+    "6-task-tests": "xv 6-task/tests/copy-object.test.js",
+    "all-tests": "xv ."
+  },
+  "devDependencies": {
+    "xv": "^1.1.1"
+  }
+}
