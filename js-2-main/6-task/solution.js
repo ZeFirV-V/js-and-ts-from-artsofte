@@ -1,14 +1,14 @@
 export function copyObject(originalValue){
-    if(isPrimitive(originalValue) || originalValue === null){
-        if (typeof originalValue === "symbol"){
+    let typeValue = Array.isArray(originalValue) ? "array" : typeof originalValue;
+
+    if(originalValue === null || typeValue !== "object" && typeValue !== "function"){
+        if (typeValue === "symbol"){
             return Symbol(originalValue.description)
         }
         return originalValue;
     }
 
-    let type = Object.prototype.toString.call(originalValue).slice(8, -1).toLowerCase()
-
-    switch (type){
+    switch (typeValue){
         case "object":
             return cloneObject();
         case "array":
@@ -23,9 +23,9 @@ export function copyObject(originalValue){
         }
     }
 
-    function cloneFunction(Value) {
-        let copyValue = new Function('return ' + Value.toString())();
-        Object.defineProperty(copyValue, 'name', {value: Value.name});
+    function cloneFunction(value) {
+        let copyValue = new Function('return ' + value.toString())();
+        Object.defineProperty(copyValue, 'name', {value: value.name});
         getValue(copyValue)
         return copyValue;
     }
@@ -39,15 +39,11 @@ export function copyObject(originalValue){
     function cloneArray(value) {
         return value.map((item) => copyObject(item));
     }
-
-    function isPrimitive(value){
-        return ((value === null) || (typeof value !== "object" && typeof value !== "function"));
-    }
 }
 
 export function isCopy(originalValue, copyValue){
-    let typeOriginal = Object.prototype.toString.call(originalValue).slice(8, -1).toLowerCase();
-    let typeCopy = Object.prototype.toString.call(copyValue).slice(8, -1).toLowerCase();
+    let typeOriginal = typeof originalValue;
+    let typeCopy = typeof originalValue;
 
     if(typeOriginal !== typeCopy) {
         return false;
@@ -58,14 +54,16 @@ export function isCopy(originalValue, copyValue){
     }
 
     if(typeOriginal === "symbol"){
-        return (originalValue.toString() === copyValue.toString() && originalValue.description === copyValue.description)
+        return (originalValue.toString() === copyValue.toString()
+            && originalValue.description === copyValue.description)
     }
 
     if(typeOriginal === "function"){
-        return originalValue.name === copyValue.name && originalValue.toString() === copyValue.toString();
+        return originalValue.name === copyValue.name
+            && originalValue.toString() === copyValue.toString();
     }
 
-    if((typeof originalValue !== "object") || originalValue === null) {
+    if(typeOriginal !== "object" || originalValue === null) {
         return originalValue === copyValue;
     }
 
@@ -76,14 +74,10 @@ export function isCopy(originalValue, copyValue){
     let result = true;
     for(let keyOriginal in originalValue){
         if(keyOriginal in copyValue){
-            if(typeOriginal === "object"){
-                result = isCopy(originalValue[keyOriginal], copyValue[keyOriginal]);
-            }
-            else if (typeof originalValue[keyOriginal] !== "object"){
-                result = copyValue[keyOriginal] === originalValue[keyOriginal];
-            }
-            if(!result)
+            result = isCopy(originalValue[keyOriginal], copyValue[keyOriginal]);
+            if(!result) {
                 return false;
+            }
         }
         else{
             return false;
