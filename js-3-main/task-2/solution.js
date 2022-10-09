@@ -7,9 +7,8 @@ export function lock(sourceObj, keys){
         throw new Error('Wrong keys argument')
     }
 
-    let a = Object.keys(sourceObj);
     for (let key of keys) {
-        if (key.indexOf('.') === -1 && a.indexOf(key) <= -1) {
+        if (key.indexOf('.') === -1 && Object.keys(sourceObj).indexOf(key) <= -1) {
             throw new Error('NoneKeyError')
         }
     }
