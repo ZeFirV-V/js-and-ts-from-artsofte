@@ -1,3 +1,4 @@
 export const answer = () => {
-    return 'https://link-to-file';
+    return 'https://disk.yandex.ru/i/dKa1uWzT4CvEWA';
 }
+console.log(answer())

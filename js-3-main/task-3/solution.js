@@ -1,3 +1,3 @@
 export const npmPackageLink = () => {
-  return "https://www.npmjs.com/package/<yourpacakge>";
+  return "https://www.npmjs.com/package/my-first-university-npm-package";
 };

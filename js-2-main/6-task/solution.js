@@ -1,7 +1,7 @@
 export function copyObject(originalValue){
     let typeValue = Array.isArray(originalValue) ? "array" : typeof originalValue;
 
-    if(originalValue === null || typeValue !== "object" && typeValue !== "function"){
+    if (originalValue === null || typeValue !== "object" && typeValue !== "array" && typeValue !== "function"){
         if (typeValue === "symbol"){
             return Symbol(originalValue.description)
         }
@@ -45,37 +45,43 @@ export function isCopy(originalValue, copyValue){
     let typeOriginal = typeof originalValue;
     let typeCopy = typeof originalValue;
 
-    if(typeOriginal !== typeCopy) {
+    if (typeOriginal !== typeCopy) {
         return false;
     }
 
-    if(Number.isNaN(originalValue) && Number.isNaN(copyValue)){
+    if (Number.isNaN(originalValue) && Number.isNaN(copyValue)){
         return true;
     }
 
-    if(typeOriginal === "symbol"){
+    if (typeOriginal === "symbol"){
         return (originalValue.toString() === copyValue.toString()
-            && originalValue.description === copyValue.description)
+            && originalValue.description === copyValue.description
+            && originalValue !== copyValue);
     }
 
-    if(typeOriginal === "function"){
-        return originalValue.name === copyValue.name
+    if (typeOriginal === "function"){
+        return originalValue !== copyValue
+            && originalValue.name === copyValue.name
             && originalValue.toString() === copyValue.toString();
     }
 
-    if(typeOriginal !== "object" || originalValue === null) {
+    if (typeOriginal !== "object" || originalValue === null) {
         return originalValue === copyValue;
     }
 
-    if(Object.keys(originalValue).length !== Object.keys(copyValue).length) {
+    if (typeOriginal === "object" && originalValue === copyValue){
+        return false;
+    }
+
+    if (Object.keys(originalValue).length !== Object.keys(copyValue).length) {
         return false;
     }
 
     let result = true;
-    for(let keyOriginal in originalValue){
-        if(keyOriginal in copyValue){
+    for (let keyOriginal in originalValue){
+        if (keyOriginal in copyValue){
             result = isCopy(originalValue[keyOriginal], copyValue[keyOriginal]);
-            if(!result) {
+            if (!result) {
                 return false;
             }
         }
