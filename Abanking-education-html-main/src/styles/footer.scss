@@ -1,0 +1,36 @@
+.footer {
+  &__wrapper {
+    padding: 77px 173px 49px;
+  }
+
+  &__list {
+    display: inline-flex;
+    justify-content: center;
+    gap: 65px;
+
+    padding-bottom: 67px;
+    //border-bottom: 1px solid rgba($color: #000000, $alpha: 0.2);
+
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  &__link {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;
+
+    color: #6D6D6D;
+  }
+
+  &__copyright {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+
+    text-align: center;
+
+    color: #21243D;
+  }
+}

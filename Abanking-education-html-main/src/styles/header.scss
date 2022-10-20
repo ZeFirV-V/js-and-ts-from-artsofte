@@ -1,0 +1,11 @@
+.header {
+  &__container {
+    position: relative;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+  }
+}

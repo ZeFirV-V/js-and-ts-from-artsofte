@@ -1,0 +1,24 @@
+.nav {
+  &__link {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    text-align: right;
+
+    color: #000000;
+
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &__list {
+    gap: 33px;
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+    margin-left: 708px;
+  }
+}

@@ -15,7 +15,7 @@
 <header class="header">
     <div class="container">
         <div class="header__container">
-            <nav class="header__nav nav">
+            <nav class="header__nav">
                 <ul class="nav__list">
                     <li class="nav__item">
                         <a class="nav__link" href="#">Works</a>
@@ -36,36 +36,46 @@
         <div class="container">
             <div class="greeting__container">
                 <div class="greeting__header">
-                    <h1 class="greeting__title">Hi, I am John, Creative Technologist</h1>
-                    <p class="greeting__text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                    <div class="greeting__location-wrapper">
-                       <a class="greeting__location" href="#"> <!-- download=""-->
-                            <p class="greeting__location-title">Download Resume</p>
-                        </a>
-                    </div>
+                    <h1 class="greeting__title">Hi, I am John,<br> Creative Technologist</h1>
+                    <p class="greeting__text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                        Velit officia consequat duis enim velit mollit.
+                        Exercitation veniam consequat sunt nostrud amet.</p>
                 </div>
                 <div class="greeting__img"></div>
+                <div class="greeting__location-wrapper">
+                    <a class="greeting__location" download href="#">
+                        <p class="greeting__location-title">Download Resume</p>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
     <section class="recent">
         <div class="recent__background-container">
-            <h3 class="recent__title">Recent posts</h3>
-            <a href="#">
-                <p class="recent__all">View all</p>
-            </a>
-            <ul class="recent__list">
-                <li class="recent__item">
-                    <h2>Making a design system from scratch</h2>
-                    <p>Design, Pattern</p>
-                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                </li>
-                <li class="recent__item">
-                    <h2>Creating pixel perfect icons in Figma</h2>
-                    <p>Design, Pattern</p>
-                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                </li>
-            </ul>
+            <div class="container">
+                <div class="recent__header">
+                    <h3 class="recent__header_title">Recent posts</h3>
+                    <a href="#">
+                        <p class="recent__all">View all</p>
+                    </a>
+                </div>
+                <ul class="recent__list">
+                    <li class="recent__item">
+                        <h2 class="recent__item_title">Making a design system from scratch</h2>
+                        <p>Design, Pattern</p>
+                        <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                            Velit officia consequat duis enim velit mollit.
+                            Exercitation veniam consequat sunt nostrud amet.</p>
+                    </li>
+                    <li class="recent__item">
+                        <h2 class="recent__item_title">Creating pixel perfect icons in Figma</h2>
+                        <p>Design, Pattern</p>
+                        <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                            Velit officia consequat duis enim velit mollit.
+                            Exercitation veniam consequat sunt nostrud amet.</p>
+                    </li>
+                </ul>
+            </div>
         </div>
     </section>
     <section class="featured">
@@ -140,7 +150,6 @@
                     </a>
                 </li>
             </ul>
-
             <p class="footer__copyright">Copyright ©2020 All rights reserved</p>
         </div>
     </div>
